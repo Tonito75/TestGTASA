@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -196,11 +196,12 @@ namespace Tests
         {
             return BitConverter.ToInt32(new byte[4] { file[index], file[index + 1], file[index + 2], file[index + 3] }, 0);
         }
+       
         public static byte[] createIPL()
         {
             List<byte> l = new List<byte>();
 
-            int nbobj = 220;
+            int nbobj = 1000;
 
             l.Add(98);
             l.Add(110);
@@ -228,24 +229,28 @@ namespace Tests
                 l.Add(0);
             }
             //FIN HEADER
+
+            int[] ids = new int[7] { 1333, 1370, 1331, 1334, 910, 1236, 1365 };
+
             
+
             for(int i = 0; i < nbobj; i++)
             {
                 //x
-                b = BitConverter.GetBytes((float)r.Next(-2015, -1983));
+                b = BitConverter.GetBytes((float)r.Next(-2256, -1741));
                 l.Add(b[0]);
                 l.Add(b[1]);
                 l.Add(b[2]);
                 l.Add(b[3]);
 
                 //y
-                b = BitConverter.GetBytes((float)r.Next(108, 232));
+                b = BitConverter.GetBytes((float)r.Next(-195, 356));
                 l.Add(b[0]);
                 l.Add(b[1]);
                 l.Add(b[2]);
                 l.Add(b[3]);
                 //z
-                b = BitConverter.GetBytes((float)30);
+                b = BitConverter.GetBytes((float)r.Next(28, 50));
                 l.Add(b[0]);
                 l.Add(b[1]);
                 l.Add(b[2]);
